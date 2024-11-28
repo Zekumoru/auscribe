@@ -83,6 +83,17 @@ export function App() {
         </button>
       </form>
       {status && <p>Status: {status}</p>}
+      <p>
+        Icon Credit:{' '}
+        {
+          <a
+            href="https://www.flaticon.com/free-icons/sound-waves"
+            title="sound waves icons"
+          >
+            Sound waves icons created by Arkinasi - Flaticon
+          </a>
+        }
+      </p>
     </main>
   );
 }
