@@ -1,0 +1,26 @@
+{
+  "name": "auscribe-server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/auscribe-server/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "auscribe-server:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "auscribe-server:build:development"
+        },
+        "production": {
+          "buildTarget": "auscribe-server:build:production"
+        }
+      }
+    }
+  }
+}
