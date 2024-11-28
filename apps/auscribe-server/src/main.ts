@@ -1,21 +1,23 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
+import 'dotenv/config';
 import express from 'express';
-import * as path from 'path';
+import cors from 'cors';
+import logger from './utils/logger';
+import apiRouter from './routes/api';
 
 const app = express();
 
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use(cors());
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to auscribe-server!' });
+app.use('/api', apiRouter);
+app.get('/', (req, res) => {
+  res.json({
+    status: 200,
+    message: 'Server is running.',
+  });
 });
 
-const port = process.env.PORT || 3333;
-const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+const ENV_PORT = process.env.AUSCRIBE_API_PORT;
+const port = isNaN(Number(ENV_PORT)) ? 3000 : Number(ENV_PORT);
+app.listen(port, () => {
+  logger.info(`Server is running on port ${port}`);
 });
-server.on('error', console.error);

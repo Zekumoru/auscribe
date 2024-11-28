@@ -8,11 +8,11 @@ export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/apps/auscribe',
   server: {
-    port: 4200,
+    port: 4350,
     host: 'localhost',
   },
   preview: {
-    port: 4300,
+    port: 4351,
     host: 'localhost',
   },
   plugins: [react(), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
