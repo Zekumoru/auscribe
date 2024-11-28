@@ -22,7 +22,7 @@ export function App() {
       setStatus('Processing audio...');
 
       const response: Response = await fetch(
-        'http://localhost:4360/api/transcribe',
+        'https://auscribe-api.zekumoru.com/api/transcribe',
         {
           method: 'POST',
           body: formData,
